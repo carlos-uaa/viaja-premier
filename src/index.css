@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   CONFIGURACIÓN DE MODO OSCURO BASADO EN CLASE (.dark) PARA TAILWIND V4
+   ========================================================================== */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Colores de Marca: Secondary SIEMPRE es Azul Marino (nunca blanco) */
+  --color-brand-primary: var(--color-primary);
+  --color-brand-primary-hover: var(--color-primary-hover);
+  --color-brand-secondary: var(--color-secondary);
+  --color-brand-accent: var(--color-accent);
+  --color-brand-dark: var(--color-dark);
+
+  /* Títulos y Textos Dinámicos */
+  --color-title: var(--color-title);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-inverted: var(--color-text-inverted);
+
+  /* Superficies y Fondos */
+  --color-surface: var(--color-surface);
+  --color-surface-card: var(--color-surface-card);
+  --color-surface-hover: var(--color-surface-hover);
+  --color-background: var(--color-background);
+
+  /* Chips e Insignias */
+  --color-chip-bg: var(--color-chip-bg);
+  --color-chip-text: var(--color-chip-text);
+
+  /* Bordes */
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+
+  /* Estados */
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
+  --color-info: var(--color-info);
+
+  /* Redondeados */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+
+  /* Sombras */
+  --shadow-soft: var(--shadow-soft);
+  --shadow-card: var(--shadow-card);
+  --shadow-card-hover: var(--shadow-card-hover);
+  --shadow-glow: var(--shadow-glow);
+}
+
+/* --------------------------------------------------------------------------
+   MODO CLARO (LIGHT THEME)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Marca: Azul Marino para secondary y verde para primary */
+  --color-primary: #3ea318;             /* Verde Tours Único */
+  --color-primary-hover: #2f8211;
+  --color-secondary: #0b2d4f;           /* Azul Marino Imperial Corporativo */
+  --color-accent: #0284c7;
+  --color-dark: #071829;
+
+  /* Textos y Títulos en Light: Oscuros de alto contraste */
+  --color-title: #0b2d4f;               /* Títulos en Azul Marino profundo */
+  --color-text: #0f172a;                /* Cuerpo en Slate 900 */
+  --color-text-muted: #475569;          /* Subtítulos en Slate 600 */
+  --color-text-inverted: #ffffff;
+
+  /* Chips / Badges en Light */
+  --color-chip-bg: #f1f5f9;             /* Fondo gris suave */
+  --color-chip-text: #0b2d4f;           /* Texto azul marino legible */
+
+  /* Superficies y Fondos */
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-card: #ffffff;
+  --color-surface-hover: #f1f5f9;
+
+  /* Bordes */
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+
+  /* Feedback */
+  --color-success: #16a34a;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #0284c7;
+
+  /* Redondeados */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  /* Sombras */
+  --shadow-soft: 0 4px 14px -2px rgba(11, 45, 79, 0.05);
+  --shadow-card: 0 10px 30px -4px rgba(11, 45, 79, 0.08), 0 4px 10px -2px rgba(11, 45, 79, 0.03);
+  --shadow-card-hover: 0 20px 40px -6px rgba(11, 45, 79, 0.14), 0 8px 16px -4px rgba(62, 163, 24, 0.15);
+  --shadow-glow: 0 0 25px rgba(62, 163, 24, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   MODO OSCURO (DARK THEME - Activado exclusivamente por la clase .dark)
+   El Azul Marino (secondary) se preserva oscuro y elegante (nunca blanco).
+   -------------------------------------------------------------------------- */
+.dark {
+  --color-primary: #52b827;
+  --color-primary-hover: #41961e;
+  --color-secondary: #071829;           /* Azul Noche Profundo (NO BLANCO, conserva el footer y banners oscuros) */
+  --color-accent: #38bdf8;
+  --color-dark: #030a12;
+
+  /* Títulos y Textos en Dark */
+  --color-title: #ffffff;               /* Títulos en Blanco Puro */
+  --color-text: #f8fafc;                /* Cuerpo en casi blanco */
+  --color-text-muted: #94a3b8;          /* Subtítulos en gris suave */
+  --color-text-inverted: #06111d;
+
+  /* Chips / Badges en Dark */
+  --color-chip-bg: #0d2238;             /* Fondo azul oscuro suave */
+  --color-chip-text: #ffffff;           /* Texto blanco nítido */
+
+  /* Fondos Generales */
+  --color-background: #06111d;          /* Fondo general noche */
+  --color-surface: #0a1b2d;
+  --color-surface-card: #0d2238;
+  --color-surface-hover: #132f4c;
+
+  --color-border: #1a3652;
+  --color-border-strong: #24496f;
+
+  --shadow-soft: 0 4px 14px -2px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 10px 30px -4px rgba(0, 0, 0, 0.6);
+  --shadow-card-hover: 0 20px 45px -6px rgba(0, 0, 0, 0.8), 0 0 20px rgba(82, 184, 39, 0.2);
+  --shadow-glow: 0 0 30px rgba(82, 184, 39, 0.4);
+}
+
+/* Reset y control de desbordes */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Animación de levitación */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+/* Brillo en botones */
+@keyframes shimmerEffect {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmerEffect 3s infinite;
+}
