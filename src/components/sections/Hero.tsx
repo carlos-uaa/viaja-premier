@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { UserCheck, Fuel, ShieldCheck, Users, ArrowRight, Sparkles, CheckCircle2, Star } from 'lucide-react';
-import { buildQuickContactWhatsAppUrl, TOURS_UNICO_DISPLAY_PHONE } from '../../utils/whatsapp';
+import { buildQuickContactWhatsAppUrl } from '../../utils/whatsapp';
+import { BRAND_CONFIG } from '../../config/brand';
 
 export const Hero: React.FC = () => {
   const highlights = [
@@ -23,7 +24,7 @@ export const Hero: React.FC = () => {
     {
       icon: Users,
       title: 'VIAJES PARA GRUPOS',
-      desc: 'Camionetas Sprinter de 8 a 20 pasajeros.',
+      desc: `Camionetas Sprinter de ${BRAND_CONFIG.capacityRange}.`,
     },
   ];
 
@@ -43,7 +44,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
-            {/* Chip Superior - Con contraste asegurado en Light (#0B2D4F) y Dark (#FFFFFF) */}
+            {/* Chip Superior */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -53,10 +54,10 @@ export const Hero: React.FC = () => {
               <div className="w-5 h-5 rounded-full bg-brand-primary/20 flex items-center justify-center shrink-0">
                 <Sparkles className="w-3.5 h-3.5 text-brand-primary" />
               </div>
-              <span className="font-heading">Viaja Seguro, Viaja Cómodo, Viaja con Nosotros</span>
+              <span className="font-heading">{BRAND_CONFIG.subSlogan}</span>
             </motion.div>
 
-            {/* Gran Título del Flyer Oficial */}
+            {/* Gran Título Corporativo */}
             <div className="space-y-1">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] font-heading">
                 <span className="text-title block">
@@ -72,7 +73,7 @@ export const Hero: React.FC = () => {
             </div>
 
             <p className="text-base sm:text-lg text-text-muted max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              Renta de camionetas tipo Sprinter para <strong className="text-title font-semibold">8 a 20 pasajeros</strong> con chofer profesional certificado. Rutas turísticas, familiares y ejecutivas desde Aguascalientes a cualquier destino del país.
+              Renta de camionetas tipo Sprinter para <strong className="text-title font-semibold">{BRAND_CONFIG.capacityRange}</strong> con chofer profesional certificado. Rutas turísticas, familiares y ejecutivas con <strong className="text-title font-semibold">{BRAND_CONFIG.coverageText}</strong>.
             </p>
 
             {/* Los 4 Pilares Oficiales */}
@@ -163,22 +164,22 @@ export const Hero: React.FC = () => {
                 <div className="relative overflow-hidden group">
                   <img
                     src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80"
-                    alt="Camioneta Sprinter Tours Único"
+                    alt={`Camioneta Sprinter ${BRAND_CONFIG.name}`}
                     className="w-full h-80 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-secondary/90 via-black/20 to-transparent" />
                 </div>
 
-                {/* Badge Superior Izquierdo con contraste adaptativo */}
+                {/* Badge Superior Izquierdo */}
                 <div className="absolute top-4 left-4 bg-chip-bg border border-border/80 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-md">
                   <span className="text-chip-text font-black text-xs uppercase tracking-wider font-heading">
-                    Tours Único
+                    {BRAND_CONFIG.name}
                   </span>
                 </div>
 
                 {/* Badge Capacidad */}
                 <div className="absolute top-4 right-4 bg-brand-primary text-white font-black text-xs px-3.5 py-1.5 rounded-full shadow-md uppercase tracking-wider">
-                  8 a 20 Pax
+                  {BRAND_CONFIG.capacityRange}
                 </div>
 
                 {/* Botón Inferior Integrado al WhatsApp */}
@@ -198,7 +199,7 @@ export const Hero: React.FC = () => {
                           Cotiza tu viaje por WhatsApp
                         </span>
                         <span className="text-lg font-black tracking-tight font-heading text-white">
-                          {TOURS_UNICO_DISPLAY_PHONE}
+                          {BRAND_CONFIG.displayPhone}
                         </span>
                       </div>
                     </div>

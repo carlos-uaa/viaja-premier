@@ -1,4 +1,5 @@
 import React from 'react';
+import { BRAND_CONFIG } from '../../config/brand';
 
 interface LogoProps {
   className?: string;
@@ -15,53 +16,49 @@ export const Logo: React.FC<LogoProps> = ({
 
   return (
     <div className={`flex items-center gap-3 select-none ${className}`}>
-      {/* Isotipo: U Verde con Órbita Azul Marino Petróleo */}
+      {/* Isotipo Ejecutivo: Brújula / Estrella de Viaje Aerodinámica */}
       <div className="relative flex items-center justify-center shrink-0">
         <svg
-          viewBox="0 0 120 110"
+          viewBox="0 0 100 100"
           className="w-10 h-10 sm:w-11 sm:h-11 drop-shadow-sm transition-transform hover:scale-105"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* U Dinámica Verde */}
+          {/* Fondo circular suave */}
+          <circle cx="50" cy="50" r="46" fill="var(--color-primary)" fillOpacity="0.12" />
+          
+          {/* Anillo de precisión exterior */}
+          <circle cx="50" cy="50" r="42" stroke="var(--color-primary)" strokeWidth="2.5" strokeDasharray="6 3" />
+          
+          {/* Flecha / Monograma Aerodinámico de Ruta */}
           <path
-            d="M24 16 V 60 C 24 82, 38 94, 60 94 C 82 94, 96 82, 96 60 V 16"
-            stroke="var(--color-primary)"
-            strokeWidth="18"
-            strokeLinecap="round"
+            d="M50 18 L68 56 L50 48 L32 56 Z"
+            fill="var(--color-primary)"
+          />
+          <path
+            d="M50 48 L68 56 L50 82 L32 56 Z"
+            fill="var(--color-accent)"
+            className="opacity-90"
           />
 
-          {/* Anillo / Órbita Azul Marino Petróleo */}
-          <path
-            d="M6 74 C 20 62, 54 44, 98 40 C 114 38, 118 48, 108 58 C 88 78, 48 88, 18 84"
-            fill="var(--color-secondary)"
-            className="dark:fill-brand-accent opacity-95"
-          />
-
-          {/* Destello de trazado interior */}
-          <path
-            d="M28 66 C 45 56, 75 48, 98 48"
-            stroke="white"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            className="opacity-75"
-          />
+          {/* Destello central */}
+          <circle cx="50" cy="48" r="4" fill="white" />
         </svg>
       </div>
 
-      {/* Tipografía Oficial: TOURS ÚNICO */}
+      {/* Tipografía Oficial de Marca Blanca */}
       <div className="flex flex-col text-left">
         <span 
-          className={`text-xs sm:text-sm font-black tracking-[0.2em] leading-none font-heading transition-colors ${
+          className={`text-xs sm:text-sm font-black tracking-[0.25em] leading-none font-heading transition-colors ${
             isFooter 
               ? 'text-white' 
-              : 'text-[#0b2d4f] dark:text-white'
+              : 'text-title'
           }`}
         >
-          TOURS
+          VIAJA
         </span>
         <span className="text-xl sm:text-2xl font-black tracking-tight text-brand-primary leading-none font-heading">
-          ÚNICO
+          {BRAND_CONFIG.tradeName.toUpperCase()}
         </span>
         {showSlogan && (
           <span 
@@ -69,7 +66,7 @@ export const Logo: React.FC<LogoProps> = ({
               isFooter ? 'text-slate-300' : 'text-text-muted'
             }`}
           >
-            Viaja seguro, viaja cómodo
+            {BRAND_CONFIG.slogan}
           </span>
         )}
       </div>

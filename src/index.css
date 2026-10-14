@@ -9,7 +9,7 @@
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Colores de Marca: Secondary SIEMPRE es Azul Marino (nunca blanco) */
+  /* Paleta de Marca Blanca: Azul Zafiro Ejecutivo y Dorado de Lujo */
   --color-brand-primary: var(--color-primary);
   --color-brand-primary-hover: var(--color-primary-hover);
   --color-brand-secondary: var(--color-secondary);
@@ -57,28 +57,29 @@
 }
 
 /* --------------------------------------------------------------------------
-   MODO CLARO (LIGHT THEME)
+   MODO CLARO (LIGHT THEME) - ESTILO CORPORATIVO PREMIER
+   Azul Zafiro (#1E40AF), Acento Dorado (#D97706) y Azul Marino Noche (#0F172A)
    -------------------------------------------------------------------------- */
 :root {
-  /* Marca: Azul Marino para secondary y verde para primary */
-  --color-primary: #3ea318;             /* Verde Tours Único */
-  --color-primary-hover: #2f8211;
-  --color-secondary: #0b2d4f;           /* Azul Marino Imperial Corporativo */
-  --color-accent: #0284c7;
-  --color-dark: #071829;
+  /* Marca */
+  --color-primary: #1d4ed8;             /* Azul Zafiro Ejecutivo de alto prestigio */
+  --color-primary-hover: #1e40af;       /* Azul profundo para hover */
+  --color-secondary: #0f172a;           /* Azul Marino Noche profundo */
+  --color-accent: #d97706;              /* Dorado / Ámbar de lujo */
+  --color-dark: #090d16;
 
-  /* Textos y Títulos en Light: Oscuros de alto contraste */
-  --color-title: #0b2d4f;               /* Títulos en Azul Marino profundo */
-  --color-text: #0f172a;                /* Cuerpo en Slate 900 */
-  --color-text-muted: #475569;          /* Subtítulos en Slate 600 */
+  /* Textos y Títulos */
+  --color-title: #0f172a;               /* Títulos en Azul Noche / Slate 900 */
+  --color-text: #1e293b;                /* Cuerpo en Slate 800 */
+  --color-text-muted: #64748b;          /* Subtítulos en Slate 500 */
   --color-text-inverted: #ffffff;
 
-  /* Chips / Badges en Light */
-  --color-chip-bg: #f1f5f9;             /* Fondo gris suave */
-  --color-chip-text: #0b2d4f;           /* Texto azul marino legible */
+  /* Chips / Badges */
+  --color-chip-bg: #eff6ff;             /* Azul hielo suave */
+  --color-chip-text: #1d4ed8;           /* Azul zafiro legible */
 
   /* Superficies y Fondos */
-  --color-background: #f8fafc;
+  --color-background: #f8fafc;          /* Blanco limpio Slate 50 */
   --color-surface: #ffffff;
   --color-surface-card: #ffffff;
   --color-surface-hover: #f1f5f9;
@@ -101,49 +102,47 @@
   --radius-2xl: 1.5rem;
 
   /* Sombras */
-  --shadow-soft: 0 4px 14px -2px rgba(11, 45, 79, 0.05);
-  --shadow-card: 0 10px 30px -4px rgba(11, 45, 79, 0.08), 0 4px 10px -2px rgba(11, 45, 79, 0.03);
-  --shadow-card-hover: 0 20px 40px -6px rgba(11, 45, 79, 0.14), 0 8px 16px -4px rgba(62, 163, 24, 0.15);
-  --shadow-glow: 0 0 25px rgba(62, 163, 24, 0.3);
+  --shadow-soft: 0 4px 14px -2px rgba(15, 23, 42, 0.05);
+  --shadow-card: 0 10px 30px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
+  --shadow-card-hover: 0 20px 40px -6px rgba(15, 23, 42, 0.14), 0 8px 16px -4px rgba(29, 78, 216, 0.2);
+  --shadow-glow: 0 0 25px rgba(29, 78, 216, 0.35);
 }
 
 /* --------------------------------------------------------------------------
-   MODO OSCURO (DARK THEME - Activado exclusivamente por la clase .dark)
-   El Azul Marino (secondary) se preserva oscuro y elegante (nunca blanco).
+   MODO OSCURO (DARK THEME)
    -------------------------------------------------------------------------- */
 .dark {
-  --color-primary: #52b827;
-  --color-primary-hover: #41961e;
-  --color-secondary: #071829;           /* Azul Noche Profundo (NO BLANCO, conserva el footer y banners oscuros) */
-  --color-accent: #38bdf8;
-  --color-dark: #030a12;
+  --color-primary: #3b82f6;             /* Azul zafiro luminoso sobre fondos oscuros */
+  --color-primary-hover: #2563eb;
+  --color-secondary: #0b1320;           /* Fondo noche profundo corporativo */
+  --color-accent: #fbbf24;              /* Dorado cálido */
+  --color-dark: #050911;
 
-  /* Títulos y Textos en Dark */
-  --color-title: #ffffff;               /* Títulos en Blanco Puro */
-  --color-text: #f8fafc;                /* Cuerpo en casi blanco */
-  --color-text-muted: #94a3b8;          /* Subtítulos en gris suave */
-  --color-text-inverted: #06111d;
+  /* Textos y Títulos en Dark */
+  --color-title: #ffffff;
+  --color-text: #f1f5f9;
+  --color-text-muted: #94a3b8;
+  --color-text-inverted: #0b1320;
 
   /* Chips / Badges en Dark */
-  --color-chip-bg: #0d2238;             /* Fondo azul oscuro suave */
-  --color-chip-text: #ffffff;           /* Texto blanco nítido */
+  --color-chip-bg: #172554;             /* Azul noche profundo */
+  --color-chip-text: #93c5fd;           /* Azul claro luminoso */
 
-  /* Fondos Generales */
-  --color-background: #06111d;          /* Fondo general noche */
-  --color-surface: #0a1b2d;
-  --color-surface-card: #0d2238;
-  --color-surface-hover: #132f4c;
+  --color-background: #080e1a;
+  --color-surface: #0f172a;
+  --color-surface-card: #131d31;
+  --color-surface-hover: #1e293b;
 
-  --color-border: #1a3652;
-  --color-border-strong: #24496f;
+  --color-border: #1e293b;
+  --color-border-strong: #334155;
 
-  --shadow-soft: 0 4px 14px -2px rgba(0, 0, 0, 0.35);
-  --shadow-card: 0 10px 30px -4px rgba(0, 0, 0, 0.6);
-  --shadow-card-hover: 0 20px 45px -6px rgba(0, 0, 0, 0.8), 0 0 20px rgba(82, 184, 39, 0.2);
-  --shadow-glow: 0 0 30px rgba(82, 184, 39, 0.4);
+  --shadow-soft: 0 4px 14px -2px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 10px 30px -4px rgba(0, 0, 0, 0.65);
+  --shadow-card-hover: 0 20px 45px -6px rgba(0, 0, 0, 0.85), 0 0 20px rgba(59, 130, 246, 0.25);
+  --shadow-glow: 0 0 30px rgba(59, 130, 246, 0.45);
 }
 
-/* Reset y control de desbordes */
+/* Control de desbordes y tipografías */
 #root {
   min-height: 100vh;
   display: flex;
@@ -164,7 +163,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Animación de levitación */
+/* Animación sutil de levitación */
 @keyframes floatSlow {
   0%, 100% {
     transform: translateY(0px);
@@ -178,7 +177,7 @@ body {
   animation: floatSlow 5s ease-in-out infinite;
 }
 
-/* Brillo en botones */
+/* Efecto de brillo */
 @keyframes shimmerEffect {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }

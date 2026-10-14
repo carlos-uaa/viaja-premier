@@ -20,7 +20,7 @@ export const Testimonials: React.FC = () => {
       role: 'Coordinador de Eventos',
       tripType: 'Convención Corporativa (20 Pax)',
       rating: 5,
-      comment: 'Rentamos la Sprinter de 20 pasajeros para un traslado de directivos de Aguascalientes a Guadalajara. La puntualidad del operador, la limpieza de la unidad y el aire acondicionado impecable. Facturación inmediata sin complicaciones.',
+      comment: 'Rentamos la Sprinter de 20 pasajeros para un traslado corporativo de directivos y conferencistas. La puntualidad del operador, la limpieza de la unidad y el aire acondicionado impecable. Facturación inmediata sin complicaciones.',
       avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
     },
     {

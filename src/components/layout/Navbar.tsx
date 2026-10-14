@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon, PhoneCall, ShieldCheck } from 'lucide-react';
 import { Logo } from '../ui/Logo';
 import { useTheme } from '../../context/ThemeContext';
-import { buildQuickContactWhatsAppUrl, TOURS_UNICO_DISPLAY_PHONE } from '../../utils/whatsapp';
+import { buildQuickContactWhatsAppUrl } from '../../utils/whatsapp';
+import { BRAND_CONFIG } from '../../config/brand';
 
 export const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
@@ -19,7 +20,7 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { label: 'Flota Sprinter', href: '#flota' },
-    { label: 'Destinos que Inspiran', href: '#destinos' },
+    { label: 'Destinos Populares', href: '#destinos' },
     { label: 'Cotizador', href: '#cotizador' },
     { label: 'Proceso de Renta', href: '#proceso' },
     { label: 'Preguntas', href: '#faqs' },
@@ -59,7 +60,7 @@ export const Navbar: React.FC = () => {
             <button
               onClick={toggleTheme}
               aria-label="Cambiar tema claro / oscuro"
-              className="p-2.5 rounded-full text-text-muted hover:text-text hover:bg-surface-hover border border-border transition-all"
+              className="p-2.5 rounded-full text-text-muted hover:text-text hover:bg-surface-hover border border-border transition-all cursor-pointer"
             >
               {theme === 'dark' ? (
                 <Sun className="w-5 h-5 text-amber-400" />
@@ -76,7 +77,7 @@ export const Navbar: React.FC = () => {
               className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-hover text-white font-bold text-sm px-5 py-2.5 rounded-full shadow-lg shadow-brand-primary/20 hover:shadow-glow transition-all duration-300 active:scale-95"
             >
               <PhoneCall className="w-4 h-4 fill-white text-white" />
-              <span>{TOURS_UNICO_DISPLAY_PHONE}</span>
+              <span>{BRAND_CONFIG.displayPhone}</span>
             </a>
           </div>
 
@@ -84,14 +85,14 @@ export const Navbar: React.FC = () => {
           <div className="flex sm:hidden items-center gap-2">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full text-text-muted hover:bg-surface-hover border border-border"
+              className="p-2 rounded-full text-text-muted hover:bg-surface-hover border border-border cursor-pointer"
               aria-label="Cambiar tema"
             >
               {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4" />}
             </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg text-text hover:bg-surface-hover border border-border"
+              className="p-2 rounded-lg text-text hover:bg-surface-hover border border-border cursor-pointer"
               aria-label="Abrir menú"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -124,7 +125,7 @@ export const Navbar: React.FC = () => {
               className="w-full flex items-center justify-center gap-2 bg-brand-primary text-white font-bold py-3 rounded-xl shadow-md"
             >
               <PhoneCall className="w-5 h-5 fill-white text-white" />
-              <span>Cotizar al {TOURS_UNICO_DISPLAY_PHONE}</span>
+              <span>Cotizar al {BRAND_CONFIG.displayPhone}</span>
             </a>
             <div className="flex items-center justify-center gap-2 mt-3 text-xs text-text-muted">
               <ShieldCheck className="w-4 h-4 text-brand-primary" />

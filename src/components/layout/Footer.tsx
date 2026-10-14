@@ -1,7 +1,8 @@
 import React from 'react';
 import { Logo } from '../ui/Logo';
 import { MapPin, ShieldCheck, ArrowUp, MessageCircle, Heart } from 'lucide-react';
-import { buildQuickContactWhatsAppUrl, TOURS_UNICO_DISPLAY_PHONE } from '../../utils/whatsapp';
+import { buildQuickContactWhatsAppUrl } from '../../utils/whatsapp';
+import { BRAND_CONFIG } from '../../config/brand';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -15,7 +16,7 @@ export const Footer: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Lema Destacado del Flyer */}
+        {/* Lema Destacado */}
         <div className="pb-10 mb-10 border-b border-white/10 text-center flex flex-col sm:flex-row items-center justify-center gap-2 text-sm sm:text-base text-slate-300">
           <Heart className="w-4 h-4 text-brand-primary fill-brand-primary" />
           <span>Más que un viaje, creamos</span>
@@ -31,7 +32,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-5 space-y-4">
             <Logo showSlogan={true} variant="footer" />
             <p className="text-slate-300 text-sm max-w-sm leading-relaxed">
-              Especialistas en renta de camionetas tipo Sprinter para hasta 20 pasajeros con chofer profesional desde Aguascalientes a toda la República Mexicana.
+              Especialistas en renta de camionetas tipo Sprinter para hasta 20 pasajeros con chofer profesional y cobertura en toda la República Mexicana.
             </p>
             <div className="flex items-center gap-3 pt-2 text-xs text-brand-primary font-bold">
               <ShieldCheck className="w-4 h-4" />
@@ -52,7 +53,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="#destinos" className="hover:text-brand-primary transition-colors">
-                  Destinos que Inspiran
+                  Destinos Populares
                 </a>
               </li>
               <li>
@@ -90,13 +91,13 @@ export const Footer: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[11px] uppercase tracking-wider text-slate-400 block">WhatsApp / Teléfono</span>
-                  <span className="font-bold text-white text-base">{TOURS_UNICO_DISPLAY_PHONE}</span>
+                  <span className="font-bold text-white text-base">{BRAND_CONFIG.displayPhone}</span>
                 </div>
               </a>
 
               <div className="flex items-center gap-3 px-1 text-xs text-slate-400">
                 <MapPin className="w-4 h-4 text-brand-primary shrink-0" />
-                <span>Aguascalientes, Ags., México • Cobertura Nacional</span>
+                <span>{BRAND_CONFIG.coverageText}</span>
               </div>
             </div>
           </div>
@@ -106,7 +107,7 @@ export const Footer: React.FC = () => {
         {/* Fila Inferior */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            © {new Date().getFullYear()} <strong>Tours Único</strong>. Todos los derechos reservados. ¡Viaja seguro, viaja cómodo!
+            © {new Date().getFullYear()} <strong>{BRAND_CONFIG.name}</strong>. Todos los derechos reservados. ¡{BRAND_CONFIG.subSlogan}!
           </div>
 
           <div className="flex items-center gap-4">
@@ -116,7 +117,7 @@ export const Footer: React.FC = () => {
             
             <button
               onClick={scrollToTop}
-              className="ml-2 p-2 rounded-lg bg-white/5 hover:bg-brand-primary hover:text-white transition-colors"
+              className="ml-2 p-2 rounded-lg bg-white/5 hover:bg-brand-primary hover:text-white transition-colors cursor-pointer"
               aria-label="Volver al inicio"
             >
               <ArrowUp className="w-4 h-4" />

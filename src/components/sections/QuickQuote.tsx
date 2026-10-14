@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import type { QuoteRequest } from '../../types/quote';
 import { Send, Calculator, MapPin, Calendar, Users, Info, Sparkles, CheckCircle, Clock, Route, FileCheck } from 'lucide-react';
-import { buildQuoteWhatsAppUrl, TOURS_UNICO_DISPLAY_PHONE } from '../../utils/whatsapp';
+import { buildQuoteWhatsAppUrl } from '../../utils/whatsapp';
+import { BRAND_CONFIG } from '../../config/brand';
 
 export const QuickQuote: React.FC = () => {
   const [formData, setFormData] = useState<QuoteRequest>({
-    origin: 'Aguascalientes, Ags.',
-    destination: 'Basílica de Guadalupe, CDMX',
+    origin: 'Punto de Abordaje a Convenir',
+    destination: 'Destino a Elegir',
     passengers: 20,
     tripType: 'redondo',
     departureDate: '',
@@ -34,7 +35,7 @@ export const QuickQuote: React.FC = () => {
           <span className="text-xs font-black uppercase tracking-widest text-brand-primary px-3.5 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/20">
             Itinerario Personalizado
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-secondary dark:text-white mt-4 font-heading">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-title mt-4 font-heading">
             Arma tu Itinerario y Solicita Cotización
           </h2>
           <p className="text-text-muted mt-3 text-base sm:text-lg">
@@ -59,7 +60,7 @@ export const QuickQuote: React.FC = () => {
                 <Calculator className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-lg sm:text-xl font-bold text-brand-secondary dark:text-white font-heading">
+                <h3 className="text-lg sm:text-xl font-bold text-title font-heading">
                   Puntos del Viaje
                 </h3>
                 <p className="text-xs text-text-muted">
@@ -71,7 +72,7 @@ export const QuickQuote: React.FC = () => {
             {/* Datos Personales */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-brand-secondary dark:text-white mb-2">
+                <label className="block text-xs font-bold text-title mb-2">
                   Nombre o Razón Social *
                 </label>
                 <input
@@ -85,12 +86,12 @@ export const QuickQuote: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-brand-secondary dark:text-white mb-2">
+                <label className="block text-xs font-bold text-title mb-2">
                   Teléfono / WhatsApp *
                 </label>
                 <input
                   type="tel"
-                  placeholder="Ej. 449 123 4567"
+                  placeholder="Ej. 55 1234 5678"
                   value={formData.clientPhone}
                   onChange={(e) => setFormData({ ...formData, clientPhone: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-background border border-border text-text placeholder:text-text-muted text-base sm:text-sm focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/15 transition-all"
@@ -101,14 +102,14 @@ export const QuickQuote: React.FC = () => {
             {/* Origen y Destino */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-brand-secondary dark:text-white mb-2 flex items-center gap-1.5">
+                <label className="block text-xs font-bold text-title mb-2 flex items-center gap-1.5">
                   <MapPin className="w-4 h-4 text-brand-primary" />
                   Punto de Abordaje (Origen) *
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="Ej. Aguascalientes, Ags."
+                  placeholder="Ej. Domicilio, Hotel o Empresa"
                   value={formData.origin}
                   onChange={(e) => setFormData({ ...formData, origin: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-background border border-border text-text text-base sm:text-sm focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/15 transition-all"
@@ -116,14 +117,14 @@ export const QuickQuote: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-brand-secondary dark:text-white mb-2 flex items-center gap-1.5">
+                <label className="block text-xs font-bold text-title mb-2 flex items-center gap-1.5">
                   <MapPin className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   Destino Final *
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="Ej. Basílica de Guadalupe, CDMX"
+                  placeholder="Ej. Puerto Vallarta, Cancún, Querétaro..."
                   value={formData.destination}
                   onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-background border border-border text-text text-base sm:text-sm focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/15 transition-all"
@@ -134,7 +135,7 @@ export const QuickQuote: React.FC = () => {
             {/* Capacidad y Modalidad */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-brand-secondary dark:text-white mb-2 flex items-center gap-1.5">
+                <label className="block text-xs font-bold text-title mb-2 flex items-center gap-1.5">
                   <Users className="w-4 h-4 text-brand-primary" />
                   Capacidad de la Unidad *
                 </label>
@@ -165,7 +166,7 @@ export const QuickQuote: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-brand-secondary dark:text-white mb-2">
+                <label className="block text-xs font-bold text-title mb-2">
                   Modalidad del Viaje *
                 </label>
                 <div className="grid grid-cols-2 gap-2">
@@ -198,7 +199,7 @@ export const QuickQuote: React.FC = () => {
             {/* Fechas y Horas */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-brand-secondary dark:text-white mb-2 flex items-center gap-1.5">
+                <label className="block text-xs font-bold text-title mb-2 flex items-center gap-1.5">
                   <Calendar className="w-4 h-4 text-brand-primary" />
                   Fecha de Salida *
                 </label>
@@ -212,7 +213,7 @@ export const QuickQuote: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-brand-secondary dark:text-white mb-2 flex items-center gap-1.5">
+                <label className="block text-xs font-bold text-title mb-2 flex items-center gap-1.5">
                   <Clock className="w-4 h-4 text-brand-primary" />
                   Hora de Salida Estimada
                 </label>
@@ -228,7 +229,7 @@ export const QuickQuote: React.FC = () => {
             {formData.tripType === 'redondo' && (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-border/60">
                 <div>
-                  <label className="block text-xs font-bold text-brand-secondary dark:text-white mb-2 flex items-center gap-1.5">
+                  <label className="block text-xs font-bold text-title mb-2 flex items-center gap-1.5">
                     <Calendar className="w-4 h-4 text-brand-primary" />
                     Fecha de Regreso
                   </label>
@@ -241,7 +242,7 @@ export const QuickQuote: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-brand-secondary dark:text-white mb-2 flex items-center gap-1.5">
+                  <label className="block text-xs font-bold text-title mb-2 flex items-center gap-1.5">
                     <Clock className="w-4 h-4 text-brand-primary" />
                     Hora de Regreso Estimada
                   </label>
@@ -257,7 +258,7 @@ export const QuickQuote: React.FC = () => {
 
             {/* Paradas adicionales */}
             <div>
-              <label className="block text-xs font-bold text-brand-secondary dark:text-white mb-2">
+              <label className="block text-xs font-bold text-title mb-2">
                 Escalas o Paradas Deseadas en Ruta (Opcional)
               </label>
               <textarea
@@ -297,7 +298,7 @@ export const QuickQuote: React.FC = () => {
             <div className="bg-white dark:bg-surface-card p-6 sm:p-8 rounded-3xl border border-border shadow-card relative overflow-hidden">
               
               <div className="flex items-center justify-between pb-4 border-b border-border">
-                <span className="text-xs font-black uppercase tracking-wider text-brand-secondary dark:text-white flex items-center gap-1.5">
+                <span className="text-xs font-black uppercase tracking-wider text-title flex items-center gap-1.5">
                   <FileCheck className="w-4 h-4 text-brand-primary" />
                   Ficha de Solicitud
                 </span>
@@ -312,7 +313,7 @@ export const QuickQuote: React.FC = () => {
                   <Route className="w-4 h-4 text-brand-primary shrink-0 mt-0.5" />
                   <div className="text-xs leading-snug">
                     <span className="font-bold text-text-muted uppercase text-[10px] block">Ruta:</span>
-                    <span className="font-bold text-brand-secondary dark:text-white">
+                    <span className="font-bold text-title">
                       {formData.origin || 'Origen'} ➔ {formData.destination || 'Destino'}
                     </span>
                   </div>
@@ -351,7 +352,7 @@ export const QuickQuote: React.FC = () => {
 
               {/* Beneficios Incluidos en Toda Cotización Oficial */}
               <div className="space-y-3 py-4 border-y border-border/80">
-                <h4 className="text-xs font-black uppercase tracking-wider text-brand-secondary dark:text-white">
+                <h4 className="text-xs font-black uppercase tracking-wider text-title">
                   Incluido en tu Contrato Formal:
                 </h4>
                 
@@ -388,7 +389,7 @@ export const QuickQuote: React.FC = () => {
               </div>
             </div>
 
-            {/* Banner de Contacto Inmediato con fondo azul marino oscuro permanente */}
+            {/* Banner de Contacto Inmediato */}
             <div className="p-6 rounded-3xl bg-[#0b2d4f] dark:bg-[#071829] text-white border border-white/10 shadow-card flex items-center gap-4">
               <div className="w-12 h-12 rounded-2xl bg-brand-primary text-white flex items-center justify-center font-black text-xl shrink-0">
                 <Sparkles className="w-6 h-6" />
@@ -398,7 +399,7 @@ export const QuickQuote: React.FC = () => {
                   ¿Prefieres atención telefónica directa?
                 </h5>
                 <p className="text-xs text-slate-300 mt-0.5">
-                  Llámanos al <strong className="text-brand-primary">{TOURS_UNICO_DISPLAY_PHONE}</strong> y resolvemos tu itinerario en 3 minutos.
+                  Llámanos al <strong className="text-brand-primary">{BRAND_CONFIG.displayPhone}</strong> y resolvemos tu itinerario en 3 minutos.
                 </p>
               </div>
             </div>
